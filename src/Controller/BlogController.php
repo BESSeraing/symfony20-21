@@ -11,14 +11,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/post/{year<\d{4}>}/{id<\d+>}", name="view_blog_post", methods={"POST", "GET"})
+     * @Route("/post/{id<\d+>}", name="view_blog_post", methods={"POST", "GET"})
      */
-    public function blogPost(int $id, string $year) {
+    public function blogPost(int $id) {
         // Version longue
 //        $view = $this->renderView("pages/home.html.twig", ["title" => "POST numéro ".$id]);
-//        return new Response($view);
+        return new Response("affichage du post ".$id);
         // Version courte
-        return $this->render("pages/home.html.twig", ["title" => "POST numéro ".$id]);
+//        return $this->render("pages/home.html.twig", ["title" => "POST numéro ".$id]);
     }
 
 }
